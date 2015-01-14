@@ -6,13 +6,14 @@ import (
 	"debug/dwarf"
 	"debug/gosym"
 	"fmt"
-	sys "golang.org/x/sys/unix"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"syscall"
+
+	sys "golang.org/x/sys/unix"
 
 	"github.com/derekparker/delve/dwarf/frame"
 	"github.com/derekparker/delve/dwarf/reader"
