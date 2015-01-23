@@ -19,6 +19,10 @@ func (r *Regs) SetPC(tid int, pc uint64) error {
 	return sys.PtraceSetRegs(tid, r.regs)
 }
 
+func (t *ThreadContext) Kill(sig syscall.Signal) error {
+	return syscall.Tgkill(t.Process.Pid, t.Id, sig)
+}
+
 func registers(tid int) (Registers, error) {
 	var regs sys.PtraceRegs
 	err := sys.PtraceGetRegs(tid, &regs)
